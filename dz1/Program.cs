@@ -45,6 +45,23 @@ namespace ConsoleApp
 
             void task4(){
                 Console.WriteLine("Запущена задача 4");
+                Console.WriteLine("Запущена задача 2");
+                Console.WriteLine("Ведите число 1");
+                int number_1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Введите число 2");
+                int number_2 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Введите число 3");
+                int number_3 = Convert.ToInt32(Console.ReadLine());
+
+                if(number_1 == number_2 && number_1 == number_3){
+                    Console.WriteLine($"Числа равны");
+                }else if(number_1 > number_2 && number_1 > number_3){
+                    Console.WriteLine($"Число 1 - '{number_1}' самое большое");
+                }else if(number_2 > number_1 && number_2 > number_3){
+                    Console.WriteLine($"Число 2 - '{number_2}' самое большое");
+                }else{
+                    Console.WriteLine($"Число 3 - '{number_3}' самое большое");
+                }
             };
 
             void task6(){
