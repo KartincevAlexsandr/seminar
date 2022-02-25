@@ -45,7 +45,7 @@ namespace ConsoleApp
 
             void task4(){
                 Console.WriteLine("Запущена задача 4");
-                Console.WriteLine("Запущена задача 2");
+               
                 Console.WriteLine("Ведите число 1");
                 int number_1 = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("Введите число 2");
@@ -66,6 +66,15 @@ namespace ConsoleApp
 
             void task6(){
                 Console.WriteLine("Запущена задача 6");
+                Console.WriteLine("Ведите число");
+                int number = Convert.ToInt32(Console.ReadLine());
+                if(number%2 == 0){
+                    Console.WriteLine("Число четное");
+                }else{
+                    Console.WriteLine("Число не четное");
+                }
+
+
             };
 
             void task8(){
