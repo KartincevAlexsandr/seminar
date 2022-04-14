@@ -52,22 +52,34 @@ namespace ConsoleApp
                 return newArray;
             };
 
-            async void task1(){
+            ///генерируем рандомное вещественное число
+            double generationRandom(){
                 Random rnd = new Random();
+                double number = rnd.NextDouble()*100;
+                number = rnd.Next(0,2) == 0 ? number * -1 : number ; 
+                return number;
+            }
+
+            async void task1(){
+                
                 Console.WriteLine("укажите размер массива через запятую");
                 string number = Console.ReadLine();
                 int lenArray1 = Convert.ToInt32(number.Split(',')[0]);
                 int lenArray2 = Convert.ToInt32(number.Split(',')[1]);
-                int[,] newArray = new int[lenArray1,lenArray2];
+                double[,] newArray = new double[lenArray1,lenArray2];
                 for(int i = 0 ; i < lenArray1; i++){
                     for(int j = 0 ; j < lenArray2; j++){
-                        newArray[i,j] = rnd.Next(0,999);
+                        newArray[i,j] = generationRandom();
 
                     }
                 }
-                
+                for(int i = 0; i < newArray.GetLength(0); i++){
+                    for(int j = 0; j < newArray.GetLength(1); j ++){
+                        Console.Write(" {0,3}", newArray[i, j]);
+                    }
+                    Console.WriteLine("");
+                }
 
-                Console.WriteLine(newArray);
               
             };
 
@@ -79,7 +91,7 @@ namespace ConsoleApp
                 int position1 = Convert.ToInt32(position.Split(',')[0]);
                 int position2 = Convert.ToInt32(position.Split(',')[0]);
 
-                if(position1<= newArray.GetLength(0)&& position2<= newArray.GetLength(1)){
+                if(position1 < newArray.GetLength(0) && position2 < newArray.GetLength(1)){
                     Console.WriteLine(newArray[position1,position2]);
                 }else{
                     Console.WriteLine("Такой позиции нет");
@@ -97,8 +109,20 @@ namespace ConsoleApp
                     for(int j = 0 ; j < newArray.GetLength(0); j++){
                        mean += newArray[j,i];
                     }
-                    arithmeticMean[i] = mean/newArray.GetLength(1);
+                    arithmeticMean[i] = mean/newArray.GetLength(0);
                 }
+                Console.WriteLine("Массив: ");
+                for(int i = 0; i < newArray.GetLength(0); i++){
+                    for(int j = 0; j < newArray.GetLength(1); j ++){
+                        Console.Write(" {0,3}", newArray[i, j]);
+                    }
+                    Console.WriteLine("");
+                }
+                Console.WriteLine("Cреднее арифметическое для каждого столбца");
+                 for(int i = 0; i < arithmeticMean.Length; i++){
+                     Console.Write($" {arithmeticMean[i]}");
+                 }
+                 Console.WriteLine("");
                     
             };
 
