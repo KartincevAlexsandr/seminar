@@ -58,22 +58,41 @@ namespace ConsoleApp
 
 
              void task1(){
+                 string recurs(int m,int n){
+                     if(m==n){
+                         if(m%3==0){
+                             return $", {m}";
+                         }else{
+                             return "";
+                         }
+                     }
+                     if(m%3==0){
+                         return $", {m}" + recurs(m+1,n);
+                     }else{
+                         return recurs(m+1,n);
+                     }
+                 }
+
+
                 int[] period = AskUser();
-                
-                for(int i = period[0]; i <= period[1]; i++){
-                    if(i%3 == 0){
-                       Console.Write($" {i},");   
-                    }
-                }
+
+                Console.Write(recurs(period[0],period[1]));   
+
             };
 
              void task2(){
+                 int recurs(int m,int n){
+                     if(m==n){
+                         return m;
+                     }else{
+                         return m + recurs(m+1,n);
+                     }
+                 }
+
+
                 int[] period = AskUser();
-                int sum = 0;
-                for(int i = period[0]; i <= period[1]; i++){
-                    sum += i;
-                }
-                 Console.Write($" {sum}");
+
+                 Console.Write($" {recurs(period[0],period[1])}");
                
                 
             };
